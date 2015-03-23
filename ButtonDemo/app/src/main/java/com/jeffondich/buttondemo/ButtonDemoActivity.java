@@ -1,8 +1,8 @@
 package com.jeffondich.buttondemo;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,19 +17,20 @@ public class ButtonDemoActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_demo);
 
+        // This illustrates adding a listener method to the current class.
         Button button = (Button)this.findViewById(R.id.cowButton);
         button.setOnClickListener(this);
 
+        // This illustrates how to create a listener via an in-line anonymous inner class.
         button = (Button)this.findViewById(R.id.pigButton);
         View.OnClickListener pigClickListener = new View.OnClickListener() {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(v.getContext(), "Th-th-that's all, folks!", Toast.LENGTH_SHORT);
                 toast.show();
+                Log.d("BUTTON_DEMO", "Pig button was clicked");
             }
         };
         button.setOnClickListener(pigClickListener);
-
-//        button.setOnClickListener(this);
     }
 
 
@@ -60,9 +61,11 @@ public class ButtonDemoActivity extends Activity implements View.OnClickListener
         if (view.getId() == R.id.cowButton) {
             Toast toast = Toast.makeText(this, "Moo!", Toast.LENGTH_SHORT);
             toast.show();
+            Log.d("BUTTON_DEMO", "Cow button was clicked");
         } else if (view.getId() == R.id.pigButton) {
             Toast toast = Toast.makeText(this, "Oink!", Toast.LENGTH_SHORT);
             toast.show();
+            Log.d("BUTTON_DEMO", "Pig button was clicked");
         }
     }
 }
