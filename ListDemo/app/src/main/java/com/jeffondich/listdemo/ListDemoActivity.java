@@ -42,7 +42,6 @@ public class ListDemoActivity extends ListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.list_demo, menu);
         return true;
@@ -63,7 +62,7 @@ public class ListDemoActivity extends ListActivity {
     @Override
     public void onListItemClick(ListView parent, View v, int position, long id) {
         TextView textView = (TextView)v.findViewById(R.id.listCellTextView);
-        if (v != null && textView != null) {
+        if (textView != null) {
             Toast toast = Toast.makeText(v.getContext(), textView.getText(), 0);
             toast.show();
         }
