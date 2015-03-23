@@ -1,4 +1,4 @@
-package com.jeffondich.buttondemo.app;
+package com.jeffondich.buttondemo;
 
 import android.app.Activity;
 import android.content.Context;
